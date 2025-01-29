@@ -1,66 +1,59 @@
-## Foundry
+# Forge Ethernaut
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Ce repository est un environnement Foundry (Forge) pour résoudre les challenges [Ethernaut](https://ethernaut.openzeppelin.com/).
 
-Foundry consists of:
+## Installation
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Prérequis
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installé
+- Git
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+### Cloner le projet
+```sh
+git clone <repo_url>
+cd <repo_name>
+forge install
 ```
 
-### Test
-
-```shell
-$ forge test
+### Installer OpenZeppelin Contracts
+```sh
+forge install OpenZeppelin/openzeppelin-contracts
 ```
 
-### Format
+### Copier SafeMath.sol
+OpenZeppelin ne fournit plus `SafeMath.sol` dans ses dernières versions. Pour assurer la compatibilité avec certains challenges Ethernaut, copie manuellement le fichier :
 
-```shell
-$ forge fmt
+```sh
+cp deps/SafeMath.sol lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol
 ```
 
-### Gas Snapshots
+## Utilisation
 
-```shell
-$ forge snapshot
+### Compiler les contrats
+```sh
+forge build
 ```
 
-### Anvil
-
-```shell
-$ anvil
+### Lancer les tests
+```sh
+forge test
 ```
 
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+### Déployer un contrat en local
+```sh
+forge script script/Deploy.s.sol --fork-url <RPC_URL> --broadcast
 ```
 
-### Cast
-
-```shell
-$ cast <subcommand>
+### Interagir avec Foundry Console
+```sh
+forge console --fork-url <RPC_URL>
 ```
 
-### Help
+## Ressources
+- [Documentation Foundry](https://book.getfoundry.sh/)
+- [Challenges Ethernaut](https://ethernaut.openzeppelin.com/)
+- [OpenZeppelin Contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Licence
+MIT
+
