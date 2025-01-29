@@ -10,8 +10,8 @@ Ce repository est un environnement Foundry (Forge) pour résoudre les challenges
 
 ### Cloner le projet
 ```sh
-git clone <repo_url>
-cd <repo_name>
+git clone git@github.com:servalD/ethernaut.git
+cd ethernaut
 forge install
 ```
 
