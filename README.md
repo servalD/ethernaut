@@ -1,59 +1,58 @@
 # Forge Ethernaut
 
-Ce repository est un environnement Foundry (Forge) pour résoudre les challenges [Ethernaut](https://ethernaut.openzeppelin.com/).
+This repository is a Foundry (Forge) environment for solving the [Ethernaut](https://ethernaut.openzeppelin.com/) challenges.
 
 ## Installation
 
-### Prérequis
-- [Foundry](https://book.getfoundry.sh/getting-started/installation) installé
+### Prerequisites
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed
 - Git
 
-### Cloner le projet
+### Clone the project
 ```sh
 git clone git@github.com:servalD/ethernaut.git
 cd ethernaut
 forge install
 ```
 
-### Installer OpenZeppelin Contracts
+### Install OpenZeppelin Contracts
 ```sh
 forge install OpenZeppelin/openzeppelin-contracts
 ```
 
-### Copier SafeMath.sol
-OpenZeppelin ne fournit plus `SafeMath.sol` dans ses dernières versions. Pour assurer la compatibilité avec certains challenges Ethernaut, copie manuellement le fichier :
+### Copy SafeMath.sol
+OpenZeppelin no longer provides `SafeMath.sol` in its latest versions. To ensure compatibility with some Ethernaut challenges, manually copy the file:
 
 ```sh
 cp deps/SafeMath.sol lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol
 ```
 
-## Utilisation
+## Usage
 
-### Compiler les contrats
+### Compile the contracts
 ```sh
 forge build
 ```
 
-### Lancer les tests
+### Run tests
 ```sh
 forge test
 ```
 
-### Déployer un contrat en local
+### Deploy a contract locally
 ```sh
 forge script script/Deploy.s.sol --fork-url <RPC_URL> --broadcast
 ```
 
-### Interagir avec Foundry Console
+### Interact with Foundry Console
 ```sh
 forge console --fork-url <RPC_URL>
 ```
 
-## Ressources
-- [Documentation Foundry](https://book.getfoundry.sh/)
-- [Challenges Ethernaut](https://ethernaut.openzeppelin.com/)
+## Resources
+- [Foundry Documentation](https://book.getfoundry.sh/)
+- [Ethernaut Challenges](https://ethernaut.openzeppelin.com/)
 - [OpenZeppelin Contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
 
-## Licence
+## License
 MIT
-
